@@ -18,6 +18,10 @@ extension UIColor {
     class func primary() -> UIColor {
         return UIColor(red:0.00, green:0.59, blue:0.53, alpha:1.00)
     }
+    
+    class func backgroundGrey() -> UIColor {
+        return UIColor(red:0.96, green:0.96, blue:0.97, alpha:1.00)
+    }
 }
 
 extension UIViewController {
