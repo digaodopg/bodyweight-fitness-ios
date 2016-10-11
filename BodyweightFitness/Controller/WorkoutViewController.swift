@@ -181,6 +181,7 @@ class WorkoutViewController: UIViewController {
             
             player = AVPlayer(URL: NSURL(fileURLWithPath: path!))
             player!.actionAtItemEnd = AVPlayerActionAtItemEnd.None;
+            player!.muted = true
             
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = videoView.bounds

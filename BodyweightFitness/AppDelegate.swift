@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import Fabric
 import Crashlytics
+import AVFoundation
 
 class TabBarController: UITabBarController {
     let homeViewController = HomeViewController()
@@ -58,6 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UIColor.primary()
         self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         self.window?.makeKeyAndVisible()
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setCategory(AVAudioSessionCategoryAmbient, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
         
         return true
     }
