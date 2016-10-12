@@ -1,131 +1,148 @@
 import UIKit
 import RxSwift
 
-//import SnapKit
-//
-//class MyViewController: UIViewController {
-//    var didSetupConstraints = false
-//    
-//    let scrollView  = UIScrollView()
-//    let contentView = UIView()
-//    let backgroundView = UIView()
-//    
-//    let cardView = CardView()
-//    let label = UILabel()
-//    let cardView2 = CardView()
-//    
-//    let titleLabel = UILabel()
-//    let stackView = UIStackView()
-//    let startWorkoutButton = UIButton()
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        view.backgroundColor = UIColor.backgroundGrey()
-//        view.addSubview(scrollView)
-//        
-//        contentView.backgroundColor = UIColor.backgroundGrey()
-//        backgroundView.backgroundColor = UIColor.primary()
-//        cardView.backgroundColor = UIColor.whiteColor()
-//        cardView2.backgroundColor = UIColor.whiteColor()
-//        
-//        label.backgroundColor = UIColor.clearColor()
-//        label.textColor = UIColor.blackColor()
-//        label.font = UIFont.systemFontOfSize(16)
-//        label.text = "Statistics"
-//        
-//        titleLabel.backgroundColor = UIColor.clearColor()
-//        titleLabel.textColor = UIColor.blackColor()
-//        titleLabel.font = UIFont.systemFontOfSize(20)
-//        titleLabel.text = "Today's Progress"
-//        
-//        stackView.alignment = .Center
-//        
-//        startWorkoutButton.titleLabel?.text = "Start Workout"
-//        
-//        scrollView.addSubview(contentView)
-//        contentView.addSubview(backgroundView)
-//        contentView.addSubview(cardView)
-//        contentView.addSubview(label)
-//        contentView.addSubview(cardView2)
-//        
-//        cardView.addSubview(titleLabel)
-////        cardView.addSubview(stackView)
-//        cardView.addSubview(startWorkoutButton)
-//        
-//        view.setNeedsUpdateConstraints()
-//    }
-//    
-//    override func updateViewConstraints() {
-//        if (!didSetupConstraints) {
-//            scrollView.snp_makeConstraints { make in
-//                make.edges.equalTo(view).inset(UIEdgeInsetsZero)
-//            }
-//            
-//            contentView.snp_makeConstraints { make in
-//                make.edges.equalTo(scrollView).inset(UIEdgeInsetsZero)
-//                make.width.equalTo(scrollView)
-//            }
-//            
-//            backgroundView.snp_makeConstraints { make in
-//                make.top.equalTo(contentView).inset(0)
-//                make.leading.equalTo(contentView).inset(0)
-//                make.trailing.equalTo(contentView).inset(0)
-//                make.height.equalTo(200)
-//            }
-//            
-//            cardView.snp_makeConstraints { make in
-//                make.top.equalTo(contentView).inset(20)
-//                make.leading.equalTo(contentView).inset(20)
-//                make.trailing.equalTo(contentView).inset(20)
-//                make.height.equalTo(300)
-//            }
-//            
-//            titleLabel.snp_makeConstraints { make in
-//                make.top.equalTo(cardView).inset(0)
-//                make.leading.equalTo(cardView).inset(16)
-//                make.trailing.equalTo(cardView).inset(16)
-//                make.height.equalTo(50)
-//            }
-//            
-//            stackView.snp_makeConstraints { make in
-//                make.top.equalTo(titleLabel.snp_bottom).inset(20)
-//                make.leading.equalTo(cardView).inset(16)
-//                make.trailing.equalTo(cardView).inset(16)
-//                make.height.equalTo(50)
-//            }
-//            
-//            startWorkoutButton.snp_makeConstraints { make in
-//                make.top.equalTo(titleLabel.snp_bottom).inset(20)
-//                make.leading.equalTo(cardView).inset(16)
-//                make.trailing.equalTo(cardView).inset(16)
-//                make.bottom.equalTo(cardView.snp_bottom).inset(20)
-//            }
-//            
-//            label.snp_makeConstraints { make in
-//                make.top.equalTo(cardView.snp_bottom).offset(8)
-//                
-//                make.leading.equalTo(contentView).inset(20)
-//                make.trailing.equalTo(contentView).inset(20)
-//                
-//                make.height.equalTo(50)
-//            }
-//            
-//            cardView2.snp_makeConstraints { make in
-//                make.top.equalTo(label.snp_bottom).offset(8)
-//                
-//                make.leading.equalTo(contentView).inset(20)
-//                make.trailing.equalTo(contentView).inset(20)
-//                
-//                make.height.equalTo(200)
-//            }
-//            
-//            didSetupConstraints = true
-//        }
-//        
-//        super.updateViewConstraints()
-//    }
-//}
+import SnapKit
+
+class MyViewController: UIViewController {
+    var didSetupConstraints = false
+    
+    let scrollView  = UIScrollView()
+    let contentView = UIView()
+    let backgroundView = UIView()
+    
+    let cardView = CardView()
+    let label = UILabel()
+    let cardView2 = CardView()
+    
+    let startTimeValue = UILabel()
+    let startTimeTitle = UILabel()
+    
+    let lastUpdatedValue = UILabel()
+    let lastUpdatedTitle = UILabel()
+    
+    let workoutLengthValue = UILabel()
+    let workoutLengthTitle = UILabel()
+    
+    func setLabelValue(label: UILabel, text: String) {
+        label.backgroundColor = UIColor.clearColor()
+        label.textColor = UIColor.blackColor()
+        label.font = UIFont.systemFontOfSize(20)
+        label.text = text
+    }
+    
+    func setLabelTitle(label: UILabel, text: String) {
+        label.backgroundColor = UIColor.clearColor()
+        label.textColor = UIColor.blackColor()
+        label.font = UIFont.systemFontOfSize(14)
+        label.text = text
+    }
+    
+    func createCardView() {
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.backgroundGrey()
+        view.addSubview(scrollView)
+        
+        contentView.backgroundColor = UIColor.backgroundGrey()
+        backgroundView.backgroundColor = UIColor.primary()
+        cardView.backgroundColor = UIColor.whiteColor()
+        
+        self.setLabelValue(startTimeValue, text: "21:32")
+        self.setLabelTitle(startTimeTitle, text: "Start Time")
+        
+        self.setLabelValue(lastUpdatedValue, text: "22:08")
+        self.setLabelTitle(lastUpdatedTitle, text: "Last Updated Time")
+        
+        self.setLabelValue(workoutLengthValue, text: "1h 20m")
+        self.setLabelTitle(workoutLengthTitle, text: "Workout Length")
+        
+        cardView.addSubview(startTimeValue)
+        cardView.addSubview(startTimeTitle)
+        
+        cardView.addSubview(lastUpdatedValue)
+        cardView.addSubview(lastUpdatedTitle)
+        
+        cardView.addSubview(workoutLengthValue)
+        cardView.addSubview(workoutLengthTitle)
+        
+        scrollView.addSubview(contentView)
+        contentView.addSubview(backgroundView)
+        contentView.addSubview(cardView)
+        
+        view.setNeedsUpdateConstraints()
+    }
+    
+    override func updateViewConstraints() {
+        if (!didSetupConstraints) {
+            scrollView.snp_makeConstraints { make in
+                make.edges.equalTo(view).inset(UIEdgeInsetsZero)
+            }
+            
+            contentView.snp_makeConstraints { make in
+                make.edges.equalTo(scrollView).inset(UIEdgeInsetsZero)
+                make.width.equalTo(scrollView)
+            }
+            
+            backgroundView.snp_makeConstraints { make in
+                make.top.equalTo(contentView).inset(0)
+                make.leading.equalTo(contentView).inset(0)
+                make.trailing.equalTo(contentView).inset(0)
+                make.height.equalTo(100)
+            }
+            
+            cardView.snp_makeConstraints { make in
+                make.top.equalTo(contentView).inset(20)
+                make.leading.equalTo(contentView).inset(20)
+                make.trailing.equalTo(contentView).inset(20)
+                make.height.equalTo(150)
+            }
+            
+            startTimeValue.snp_makeConstraints { make in
+                make.top.equalTo(cardView).inset(16)
+                make.leading.equalTo(cardView).inset(16)
+                make.width.equalTo(cardView.snp_width).dividedBy(2)
+            }
+            
+            startTimeTitle.snp_makeConstraints { make in
+                make.top.equalTo(startTimeValue.snp_bottom).offset(8)
+                make.leading.equalTo(cardView).inset(16)
+                make.width.equalTo(cardView.snp_width).dividedBy(2)
+            }
+            
+            workoutLengthValue.snp_makeConstraints { make in
+                make.top.equalTo(startTimeTitle.snp_bottom).offset(16)
+                make.leading.equalTo(cardView).inset(16)
+                make.width.equalTo(cardView.snp_width).dividedBy(2)
+            }
+            
+            workoutLengthTitle.snp_makeConstraints { make in
+                make.top.equalTo(workoutLengthValue.snp_bottom).offset(8)
+                make.leading.equalTo(cardView).inset(16)
+                make.width.equalTo(cardView.snp_width).dividedBy(2)
+            }
+            
+            lastUpdatedValue.snp_makeConstraints { make in
+                make.top.equalTo(cardView).inset(16)
+                make.trailing.equalTo(cardView)
+                make.width.equalTo(cardView.snp_width).dividedBy(2)
+            }
+            
+            lastUpdatedTitle.snp_makeConstraints { make in
+                make.top.equalTo(lastUpdatedValue.snp_bottom).offset(8)
+                make.trailing.equalTo(cardView)
+                make.width.equalTo(cardView.snp_width).dividedBy(2)
+            }
+
+            didSetupConstraints = true
+        }
+        
+        super.updateViewConstraints()
+    }
+}
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
@@ -165,6 +182,10 @@ class HomeViewController: UIViewController {
             
             self.tabBarController?.title = it.title
         })
+        
+        let c = UINavigationController(rootViewController: MyViewController())
+        
+        self.showViewController(MyViewController(), sender: nil)
     }
 
     override func viewDidAppear(animated: Bool) {
